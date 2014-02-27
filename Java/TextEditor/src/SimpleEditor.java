@@ -14,11 +14,13 @@ import javax.swing.WindowConstants;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.EventQueue;
+import java.io.PrintWriter;
 
 public class SimpleEditor extends JFrame{
     public SimpleEditor(){
         initializeGUI();
     }
+    
     
     public void initializeGUI(){
         mainPanel = new JScrollPane();
