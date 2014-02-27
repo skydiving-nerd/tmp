@@ -1,5 +1,6 @@
 /**
  * @author Anthony Walker
+ * @date 2.27.2014 
  */
 
 import javax.swing.JFrame;
@@ -10,6 +11,8 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.GroupLayout;
 import javax.swing.WindowConstants;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.EventQueue;
 
 public class SimpleEditor extends JFrame{
@@ -26,13 +29,33 @@ public class SimpleEditor extends JFrame{
             JMenuItem newItem = new JMenuItem("New");
             JMenuItem open = new JMenuItem("Open");
             JMenuItem save = new JMenuItem("Save");
+                save.addActionListener(new ActionListener(){
+                    public void actionPerformed(ActionEvent event){
+                        System.out.println(textBox.getText());
+                    }
+                });
             JMenuItem saveAs = new JMenuItem("Save As...");
             JMenuItem print = new JMenuItem("Print...");
+            file.add(newItem);
             file.add(open);
+            file.add(save);
+            file.add(saveAs);
+            file.add(print);                 
         edit = new JMenu();
+            JMenuItem undo = new JMenuItem("Undo");
+            //redo, cut, copy, paste, select all, find/replace
+            edit.add(undo);
         view = new JMenu();
         tools = new JMenu();
         help = new JMenu();
+            JMenuItem about = new JMenuItem("About..");
+                about.addActionListener(new ActionListener(){
+                    public void actionPerformed(ActionEvent event){
+                        System.out.println("Anthony Walker");
+                        System.out.println("awalk91@hotmail.com");
+                    }
+                });            
+            help.add(about);
         
         file.setText("File");
         edit.setText("Edit");
@@ -59,7 +82,14 @@ public class SimpleEditor extends JFrame{
                 .addComponent(mainPanel, GroupLayout.DEFAULT_SIZE, 500, Short.MAX_VALUE)
         );
         
+        //makes the program quit when its window is closed
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        
+        //basically makes the text box editable
+        mainPanel.setViewportView(textBox);
+        
+        //instead of doing something like setSize() this lets the layout do
+        // that work instead, and it is defined there
         pack();
     }
     
