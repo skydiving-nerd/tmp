@@ -1,5 +1,6 @@
 /**
- * @author Anthony
+ * @author Anthony Walker
+ * @date 2.27.2014
  */
 
 import javax.swing.JFrame;
