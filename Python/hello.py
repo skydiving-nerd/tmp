@@ -1,4 +1,6 @@
 #!/usr/bin/python
-# This is a comment
+#The statement above allows this program to be runnable by telling
+#  command line which program to handle it
 
-print 'hello, world'
+# This is a comment, comments in Python are started with a "#"
+print 'Hello, world'
