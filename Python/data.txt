@@ -1,0 +1,8 @@
+# This file just contains data to be tested in python programs
+
+1	11
+2	22
+3	33
+10	100
+20	200
+30	300
